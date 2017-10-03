@@ -8,13 +8,14 @@ but note that changing these files will change the behavior of _all other
 programs running on the same operating system_.
 
 Though the call to `dns.lookup()` will be asynchronous from JavaScript's
-perspective, it is implemented as a synchronous call to getaddrinfo(3) that
-runs on libuv's threadpool. Because libuv's threadpool has a fixed size, it
-means that if for whatever reason the call to getaddrinfo(3) takes a long
-time, other operations that could run on libuv's threadpool (such as filesystem
-operations) will experience degraded performance. In order to mitigate this
-issue, one potential solution is to increase the size of libuv's threadpool by
-setting the `'UV_THREADPOOL_SIZE'` environment variable to a value greater than
-`4` (its current default value). For more information on libuv's threadpool, see
-[the official libuv documentation][].
+perspective, it is implemented as a synchronous call to getaddrinfo(3) that runs
+on libuv's threadpool. This can have surprising negative performance
+implications for some applications, see the [`UV_THREADPOOL_SIZE`][]
+documentation for more information.
+
+Note that various networking APIs will call `dns.lookup()` internally to resolve
+host names. If that is an issue, consider resolving the hostname to and address
+using `dns.resolve()` and using the address instead of a host name. Also, some
+networking APIs (such as [`socket.connect()`][] and [`dgram.createSocket()`][])
+allow the default resolver, `dns.lookup()`, to be replaced.
 

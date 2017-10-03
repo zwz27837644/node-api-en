@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 > Stability: 2 - Stable
 
 The `string_decoder` module provides an API for decoding `Buffer` objects into

@@ -1,10 +1,12 @@
 
+<!--introduced_in=v0.9.12-->
+
 > Stability: 2 - Stable
 
 <!-- type=misc -->
 
 Node.js includes an out-of-process debugging utility accessible via a
-[TCP-based protocol][] and built-in debugging client. To use it, start Node.js
+[V8 Inspector][] and built-in debugging client. To use it, start Node.js
 with the `inspect` argument followed by the path to the script to debug; a prompt
 will be displayed indicating successful launch of the debugger:
 

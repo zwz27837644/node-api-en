@@ -1,6 +1,9 @@
 <!-- YAML
 added: v1.2.0
 changes:
+  - version: v8.5.0
+    pr-url: https://github.com/nodejs/node/pull/15001
+    description: Error names and messages are now properly compared
   - version: v8.0.0
     pr-url: https://github.com/nodejs/node/pull/12142
     description: Set and Map content is also compared
@@ -18,7 +21,7 @@ changes:
 * `expected` {any}
 * `message` {any}
 
-Generally identical to `assert.deepEqual()` with three exceptions:
+Generally identical to `assert.deepEqual()` with a few exceptions:
 
 1. Primitive values are compared using the [Strict Equality Comparison][]
   ( `===` ). Set values and Map keys are compared using the [SameValueZero][]
@@ -26,6 +29,7 @@ Generally identical to `assert.deepEqual()` with three exceptions:
 2. [`[[Prototype]]`][prototype-spec] of objects are compared using
   the [Strict Equality Comparison][] too.
 3. [Type tags][Object.prototype.toString()] of objects should be the same.
+4. [Object wrappers][] are compared both as objects and unwrapped values.
 
 ```js
 const assert = require('assert');
@@ -55,6 +59,11 @@ assert.deepEqual(date, fakeDate);
 assert.deepStrictEqual(date, fakeDate);
 // AssertionError: 2017-03-11T14:25:31.849Z deepStrictEqual Date {}
 // Different type tags
+
+assert.deepStrictEqual(new Number(1), new Number(2));
+// Fails because the wrapped number is unwrapped and compared as well.
+assert.deepStrictEqual(new String('foo'), Object('foo'));
+// OK because the object and the string are identical when unwrapped.
 ```
 
 If the values are not equal, an `AssertionError` is thrown with a `message`

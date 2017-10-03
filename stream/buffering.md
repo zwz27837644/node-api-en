@@ -7,8 +7,8 @@ buffer that can be retrieved using `writable._writableState.getBuffer()` or
 
 The amount of data potentially buffered depends on the `highWaterMark` option
 passed into the streams constructor. For normal streams, the `highWaterMark`
-option specifies a total number of bytes. For streams operating in object mode,
-the `highWaterMark` specifies a total number of objects.
+option specifies a [total number of bytes][hwm-gotcha]. For streams operating
+in object mode, the `highWaterMark` specifies a total number of objects.
 
 Data is buffered in Readable streams when the implementation calls
 [`stream.push(chunk)`][stream-push]. If the consumer of the Stream does not

@@ -25,6 +25,10 @@ be used to send messages to the child process. When the child process is a
 Node.js instance, these messages can be received via the
 [`process.on('message')`][] event.
 
+*Note*: The message goes through JSON serialization and parsing. The resulting
+message might not be the same as what is originally sent. See notes in
+[the `JSON.stringify()` specification][`JSON.stringify` spec].
+
 For example, in the parent script:
 
 ```js
@@ -35,6 +39,7 @@ n.on('message', (m) => {
   console.log('PARENT got message:', m);
 });
 
+// Causes the child to print: CHILD got message: { hello: 'world' }
 n.send({ hello: 'world' });
 ```
 
@@ -45,7 +50,8 @@ process.on('message', (m) => {
   console.log('CHILD got message:', m);
 });
 
-process.send({ foo: 'bar' });
+// Causes the parent to print: PARENT got message: { foo: 'bar', baz: null }
+process.send({ foo: 'bar', baz: NaN });
 ```
 
 Child Node.js processes will have a [`process.send()`][] method of their own that

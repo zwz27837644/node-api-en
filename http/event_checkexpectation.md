@@ -2,7 +2,7 @@
 added: v5.5.0
 -->
 
-* `request` {http.ClientRequest}
+* `request` {http.IncomingMessage}
 * `response` {http.ServerResponse}
 
 Emitted each time a request with an HTTP `Expect` header is received, where the

@@ -1,4 +1,5 @@
 
+<!-- introduced_in=v0.10.0 -->
 <!-- type=global -->
 
 The `process` object is a `global` that provides information about, and control

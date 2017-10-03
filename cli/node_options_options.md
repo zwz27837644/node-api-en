@@ -14,7 +14,6 @@ Node options that are allowed are:
 - `--inspect-brk`
 - `--inspect-port`
 - `--inspect`
-- `--napi-modules`
 - `--no-deprecation`
 - `--no-warnings`
 - `--openssl-config`

@@ -8,8 +8,9 @@ Called when `socket` is detached from a request and could be persisted by the
 Agent. Default behavior is to:
 
 ```js
+socket.setKeepAlive(true, this.keepAliveMsecs);
 socket.unref();
-socket.setKeepAlive(agent.keepAliveMsecs);
+return true;
 ```
 
 This method can be overridden by a particular `Agent` subclass. If this

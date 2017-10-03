@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 > Stability: 2 - Stable
 
 The `repl` module provides a Read-Eval-Print-Loop (REPL) implementation that

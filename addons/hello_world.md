@@ -30,7 +30,7 @@ void init(Local<Object> exports) {
   NODE_SET_METHOD(exports, "hello", Method);
 }
 
-NODE_MODULE(addon, init)
+NODE_MODULE(NODE_GYP_MODULE_NAME, init)
 
 }  // namespace demo
 ```
@@ -40,7 +40,7 @@ the pattern:
 
 ```cpp
 void Initialize(Local<Object> exports);
-NODE_MODULE(module_name, Initialize)
+NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize)
 ```
 
 There is no semi-colon after `NODE_MODULE` as it's not a function (see

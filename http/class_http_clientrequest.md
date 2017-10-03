@@ -4,9 +4,9 @@ added: v0.1.17
 
 This object is created internally and returned from [`http.request()`][].  It
 represents an _in-progress_ request whose header has already been queued.  The
-header is still mutable using the `setHeader(name, value)`, `getHeader(name)`,
-`removeHeader(name)` API.  The actual header will be sent along with the first
-data chunk or when closing the connection.
+header is still mutable using the [`setHeader(name, value)`][],
+ [`getHeader(name)`][], [`removeHeader(name)`][] API.  The actual header will
+be sent along with the first data chunk or when calling [`request.end()`][].
 
 To get the response, add a listener for [`'response'`][] to the request object.
 [`'response'`][] will be emitted from the request object when the response

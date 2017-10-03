@@ -3,7 +3,7 @@
   argument and data) to be called when remaining data has been flushed.
 
 *Note*: This function MUST NOT be called by application code directly. It
-should be implemented by child classes, and called only by the internal Readable
+should be implemented by child classes, and called by the internal Readable
 class methods only.
 
 In some cases, a transform operation may need to emit an additional bit of

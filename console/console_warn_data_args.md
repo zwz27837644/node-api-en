@@ -7,6 +7,7 @@ added: v0.1.100
 The `console.warn()` function is an alias for [`console.error()`][].
 
 [`console.error()`]: #console_console_error_data_args
+[`console.group()`]: #console_console_group_label
 [`console.log()`]: #console_console_log_data_args
 [`console.time()`]: #console_console_time_label
 [`console.timeEnd()`]: #console_console_timeend_label

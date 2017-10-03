@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 > Stability: 2 - Stable
 
 The `util` module is primarily designed to support the needs of Node.js' own

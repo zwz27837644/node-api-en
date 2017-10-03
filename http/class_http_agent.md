@@ -26,9 +26,9 @@ to keep the Node.js process running when there are no outstanding requests.
 It is good practice, to [`destroy()`][] an `Agent` instance when it is no
 longer in use, because unused sockets consume OS resources.
 
-Sockets are removed from an agent's pool when the socket emits either
+Sockets are removed from an agent when the socket emits either
 a `'close'` event or an `'agentRemove'` event. When intending to keep one
-HTTP request open for a long time without keeping it in the pool, something
+HTTP request open for a long time without keeping it in the agent, something
 like the following may be done:
 
 ```js

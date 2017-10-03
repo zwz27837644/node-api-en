@@ -1,4 +1,6 @@
 
+<!--introduced_in=v0.10.0-->
+
 > Stability: 2 - Stable
 
 The `tls` module provides an implementation of the Transport Layer Security

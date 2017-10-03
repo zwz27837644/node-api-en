@@ -16,7 +16,7 @@ resource.
 [`writable._write()`][stream-_write].
 
 *Note*: This function MUST NOT be called by application code directly. It
-should be implemented by child classes, and called only by the internal Writable
+should be implemented by child classes, and called by the internal Writable
 class methods only.
 
 The `callback` method must be called to signal either that the write completed

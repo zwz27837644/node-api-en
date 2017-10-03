@@ -28,12 +28,12 @@ Only [enumerable "own" properties][] are considered. The
 non-enumerable properties — for such checks, consider using
 [`assert.deepStrictEqual()`][] instead. This can lead to some
 potentially surprising results. For example, the following example does not
-throw an `AssertionError` because the properties on the [`Error`][] object are
+throw an `AssertionError` because the properties on the [`RegExp`][] object are
 not enumerable:
 
 ```js
 // WARNING: This does not throw an AssertionError!
-assert.deepEqual(Error('a'), Error('b'));
+assert.deepEqual(/a/gi, new Date());
 ```
 
 An exception is made for [`Map`][] and [`Set`][]. Maps and Sets have their

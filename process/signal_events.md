@@ -58,7 +58,7 @@ It is important to take note of the following:
    called asynchronously and therefore unable to correct the underlying problem.
 
 *Note*: Windows does not support sending signals, but Node.js offers some
-emulation with [`process.kill()`][], and [`ChildProcess.kill()`][]. Sending
+emulation with [`process.kill()`][], and [`subprocess.kill()`][]. Sending
 signal `0` can be used to test for the existence of a process. Sending `SIGINT`,
 `SIGTERM`, and `SIGKILL` cause the unconditional termination of the target
 process.
